@@ -11,6 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Extract zip
+        run: |
+          unzip -o PokeCountOverlay-Android.zip
+          cp -rf PokeCountOverlay-Android/* . 2>/dev/null || true
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
